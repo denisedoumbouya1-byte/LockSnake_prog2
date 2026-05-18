@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['prog2_ybel_locksnake/src/main/java']
+        }
+        resources {
+            srcDirs = ['prog2_ybel_locksnake/src/main/resources']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['prog2_ybel_locksnake/src/test/java']
+        }
+    }
+}
+
+application {
+    mainClass = 'de.hsbi.lockgame.Main'
+}
+
+test {
+    useJUnitPlatform()
+}
